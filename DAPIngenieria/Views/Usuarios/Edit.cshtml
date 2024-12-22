@@ -1,0 +1,55 @@
+﻿@model DAPIngenieria.Models.Usuario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Editar Usuario</h1>
+
+<hr />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h4 class="card-title text-center">Editar los detalles del usuario</h4>
+
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="form-group mb-3">
+                        <label asp-for="NombreUsuario" class="control-label"></label>
+                        <input asp-for="NombreUsuario" class="form-control" placeholder="Nombre de Usuario" />
+                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Contraseña" class="control-label"></label>
+                        <input asp-for="Contraseña" class="form-control" placeholder="Contraseña" type="password" />
+                        <span asp-validation-for="Contraseña" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Rol" class="control-label"></label>
+                        <input asp-for="Rol" class="form-control" placeholder="Rol" />
+                        <span asp-validation-for="Rol" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit" value="Guardar" class="btn btn-primary btn-lg" />
+                    </div>
+                </form>
+
+                <div class="form-group text-center mt-3">
+                    <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

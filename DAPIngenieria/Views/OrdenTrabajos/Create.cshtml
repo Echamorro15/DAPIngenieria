@@ -1,0 +1,88 @@
+﻿@model DAPIngenieria.Models.OrdenTrabajo
+
+@{
+    ViewData["Title"] = "Registrar Nueva Orden de Trabajo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center mb-4">Registrar Nueva Orden de Trabajo</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdOrden" class="control-label">ID Orden</label>
+                        <input asp-for="IdOrden" class="form-control" />
+                        <span asp-validation-for="IdOrden" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="FechaCreacion" class="control-label">Fecha de Creación</label>
+                        <input asp-for="FechaCreacion" class="form-control" type="date" />
+                        <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="FechaInicio" class="control-label">Fecha de Inicio</label>
+                        <input asp-for="FechaInicio" class="form-control" type="date" />
+                        <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdCliente" class="control-label">Cliente</label>
+                        <select asp-for="IdCliente" class="form-control" asp-items="ViewBag.IdCliente">
+                            <option value="">Seleccione un Cliente</option>
+                        </select>
+                        <span asp-validation-for="IdCliente" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdPresupuesto" class="control-label">Presupuesto</label>
+                        <input asp-for="IdPresupuesto" class="form-control" />
+                        <span asp-validation-for="IdPresupuesto" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdTipoServicio" class="control-label">Tipo de Servicio</label>
+                        <select asp-for="IdTipoServicio" class="form-control" asp-items="ViewBag.IdTipoServicio">
+                            <option value="">Seleccione un Tipo de Servicio</option>
+                        </select>
+                        <span asp-validation-for="IdTipoServicio" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="DesOrden" class="control-label">Descripción de la Orden</label>
+                        <input asp-for="DesOrden" class="form-control" />
+                        <span asp-validation-for="DesOrden" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdEmpleado" class="control-label">Empleado Asignado</label>
+                        <select asp-for="IdEmpleado" class="form-control" asp-items="ViewBag.IdEmpleado">
+                            <option value="">Seleccione un Empleado</option>
+                        </select>
+                        <span asp-validation-for="IdEmpleado" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit" value="Guardar" class="btn btn-primary btn-lg" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-link btn-lg">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

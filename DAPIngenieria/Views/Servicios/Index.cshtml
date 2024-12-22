@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DAPIngenieria.Models.Servicio>
+
+
+<h1 class="text-center mb-3"> Lista de Servicios</h1>
+
+<div class="mb-3 text-center">
+    <a asp-action="Create" class="btn btn-primary btn-lg">Registar nuevo</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DesServicio)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaFin)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaProx)</th>
+            @* <th>@Html.DisplayNameFor(model => model.Cliente.RazonSocial)</th> *@
+            <th>@Html.DisplayNameFor(model => model.TipoServicio.DesTipoServicio)</th>
+            <th>@Html.DisplayNameFor(model => model.OrdenTrabajo.DesOrden)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.DesServicio)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaFin)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaProx)</td>
+                @* <td>@Html.DisplayFor(modelItem => item.Cliente.RazonSocial)</td> *@
+                <td>@Html.DisplayFor(modelItem => item.TipoServicio.DesTipoServicio)</td>
+                <td>@Html.DisplayFor(modelItem => item.OrdenTrabajo.DesOrden)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdServicio">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdServicio">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdServicio">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

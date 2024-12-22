@@ -1,0 +1,55 @@
+﻿
+                @model IEnumerable<DAPIngenieria.Models.Presupuesto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center mb-4">Lista de Presupuestos</h1>
+
+<div class="mb-3 text-center">
+    <a asp-action="Create" class="btn btn-primary btn-lg">Registrar Nuevo</a>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.IdCliente)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaCreacion)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaVencimiento)</th>
+            <th>@Html.DisplayNameFor(model => model.IdTipoServicio)</th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.Cantidad)</th>
+            <th>@Html.DisplayNameFor(model => model.MontoUnitario)</th>
+            <th>@Html.DisplayNameFor(model => model.MontoTotal)</th>
+            <th>@Html.DisplayNameFor(model => model.UsuarioCreador)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.IdCliente)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaCreacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaVencimiento)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdTipoServicio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                <td>@Html.DisplayFor(modelItem => item.MontoUnitario)</td>
+                <td>@Html.DisplayFor(modelItem => item.MontoTotal)</td>
+                <td>@Html.DisplayFor(modelItem => item.UsuarioCreador)</td>
+                <td>
+                    <div class="d-flex gap-2">
+                        <a asp-action="Edit" asp-route-id="@item.IdPresupuesto" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.IdPresupuesto" class="btn btn-info btn-sm text-white">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdPresupuesto" class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

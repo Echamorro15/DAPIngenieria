@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Presupuestos Aceptados";
+}
+
+<h1 class="text-center mb-4">Presupuestos Aceptados</h1>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>IdPresupuesto</th>
+                    <th>Cliente</th> <!-- Nueva columna -->
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdPresupuesto</td>
+                        <td>@item.RazonSocial</td> <!-- Mostrar el nombre del cliente -->
+                        <td>@item.Descripcion</td>
+                        <td>@item.Estado</td>
+                        <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a asp-action="Create" asp-controller="OrdenTrabajos" asp-route-idPresupuesto="@item.IdPresupuesto" class="btn btn-primary btn-sm">
+                                    Crear Orden de Trabajo
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,47 @@
+﻿@model List<InfoPresupuesto>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Informe de Presupuestos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Informe de Presupuestos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id Presupuesto</th>
+                <th>Razon Social</th>
+                <th>Descripción Servicio</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var presupuesto in Model)
+            {
+                <tr>
+                    <td>@presupuesto.IdPresupuesto</td>
+                    <td>@presupuesto.RazonSocial</td>
+                    <td>@presupuesto.DesServicio</td>
+                    <td>@presupuesto.Estado</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DAPIngenieria</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DAPIngenieria.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        @if (!(ViewData["IsLoginPage"] as bool? ?? false))
+        {
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DAPIngenieria</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRegistrar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Mantenimiento
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownRegistrar">
+                                    <li><a class="dropdown-item" asp-controller="TipoServicios" asp-action="Index">Tipo Servicios</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Empleados" asp-action="Index">Empleados</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Usuarios" asp-action="Index">Usuarios</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGenerar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Presupuesto
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownGenerar">
+                                    <li><a class="dropdown-item" asp-controller="Presupuestos" asp-action="Index">Generar Presupuesto</a></li>
+                                    <li><a class="dropdown-item" asp-controller="PresupuestoFiltroViewModel" asp-action="Index">Reporte Presupuesto</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOrdenTrabajo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Orden de Trabajo
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownOrdenTrabajo">
+                                    <li><a class="dropdown-item" asp-controller="OrdenTrabajos" asp-action="Index">Generar Orden Trabajo</a></li>
+                                    <li><a class="dropdown-item" asp-controller="OrdenTrabajos" asp-action="IndexOrden">Ordenes de Trabajo</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Servicios
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownServicios">
+                                    <li><a class="dropdown-item" asp-controller="Servicios" asp-action="Index">Registrar Servicio</a></li>
+                                    <li><a class="dropdown-item" asp-controller="ServicioFiltroViewModel" asp-action="Index">Reporte Proximos Servicios</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Logout">Cerrar Sesión</a>
+                            </li>
+                           
+                            @* <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cerrar Sesion
+                                </a>
+                                <ul 
+                                    class="dropdown-menu" aria-labelledby="navbarDropdownServicios">
+                                </ul>
+                            </li> *@
+                            @* @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Account" asp-action="Logout">Cerrar Sesión</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                     <a class="nav-link" asp-controller="Account" asp-action="Login">Iniciar Sesión</a>
+                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Usuarios" asp-action="Registrar">Registrar Usuario</a>
+                                </li>
+                            } *@
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        }
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - DAPIngenieria - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

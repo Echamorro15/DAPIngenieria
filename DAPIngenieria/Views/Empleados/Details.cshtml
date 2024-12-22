@@ -1,0 +1,93 @@
+﻿@model DAPIngenieria.Models.Empleado
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Detalles de Empleado</h1>
+
+<div>
+    <hr />
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4 shadow-sm">
+
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.CIN)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.CIN)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Nombres)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Nombres)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Apellidos)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Apellidos)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Telefono)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Telefono)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Direccion)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Direccion)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.FechaIngreso)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.FechaIngreso)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.UsuarioCreador)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.UsuarioCreador)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.FechaRegistro)
+                        </dd>
+                    </dl>
+
+                    <div class="form-group text-center">
+                        <a asp-action="Edit" asp-route-id="@Model?.IdEmpleado" class="btn btn-warning btn-sm">Editar</a>
+                    </div>
+
+                    <div class="form-group text-center mt-3">
+                        <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

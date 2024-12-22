@@ -1,0 +1,33 @@
+﻿@model DAPIngenieria.Models.Usuario
+
+@{
+    ViewBag.Title = "Registro de Usuario";
+}
+
+<h2>Registro de Usuario</h2>
+
+@using (Html.BeginForm("Registrar", "Usuarios", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NombreUsuario)
+        @Html.TextBoxFor(m => m.NombreUsuario, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NombreUsuario)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Contraseña)
+        @Html.PasswordFor(m => m.Contraseña, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Contraseña)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rol)
+        @Html.DropDownListFor(m => m.Rol, new SelectList(new[] { "Gerencial", "Técnico" }), "Seleccione un Rol", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Rol)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+}
+

@@ -1,0 +1,92 @@
+﻿@model DAPIngenieria.Models.Cliente
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Editar Cliente</h1>
+
+<hr />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm">
+
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input type="hidden" asp-for="IdCliente" />
+
+                    <div class="form-group mb-3">
+                        <label asp-for="RUC" class="control-label"></label>
+                        <input asp-for="RUC" class="form-control" />
+                        <span asp-validation-for="RUC" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="RazonSocial" class="control-label"></label>
+                        <input asp-for="RazonSocial" class="form-control" />
+                        <span asp-validation-for="RazonSocial" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Telefono" class="control-label"></label>
+                        <input asp-for="Telefono" class="form-control" />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Ciudad" class="control-label"></label>
+                        <input asp-for="Ciudad" class="form-control" />
+                        <span asp-validation-for="Ciudad" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Departamento" class="control-label"></label>
+                        <input asp-for="Departamento" class="form-control" />
+                        <span asp-validation-for="Departamento" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Pais" class="control-label"></label>
+                        <input asp-for="Pais" class="form-control" />
+                        <span asp-validation-for="Pais" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="FechaRegistro" class="control-label"></label>
+                        <input asp-for="FechaRegistro" type="datetime-local" class="form-control" />
+                        <span asp-validation-for="FechaRegistro" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="UsuarioCreador" class="control-label"></label>
+                        <input asp-for="UsuarioCreador" class="form-control" />
+                        <span asp-validation-for="UsuarioCreador" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit" value="Guardar" class="btn btn-primary btn-lg" />
+                    </div>
+                </form>
+
+                <div class="form-group text-center mt-3">
+                    <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

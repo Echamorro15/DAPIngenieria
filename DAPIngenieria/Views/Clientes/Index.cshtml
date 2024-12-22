@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DAPIngenieria.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Listado de Clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center mb-3">Lista de Clientes</h1>
+
+<!-- Botón Crear Nuevo -->
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-primary">Registrar Nuevo</a>
+</div>
+
+<!-- Tabla de Clientes -->
+<table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>RUC</th>
+            <th>Razón Social</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Ciudad</th>
+            <th>Departamento</th>
+            <th>País</th>
+            <th>Fecha de Registro</th>
+            <th>Usuario Creador</th>
+            <th style="width: 200px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdCliente</td>
+                <td>@item.RUC</td>
+                <td>@item.RazonSocial</td>
+                <td>@item.Telefono</td>
+                <td>@item.Email</td>
+                <td>@item.Ciudad</td>
+                <td>@item.Departamento</td>
+                <td>@item.Pais</td>
+                <td>@item.FechaRegistro.ToShortDateString()</td>
+                <td>@item.UsuarioCreador</td>
+                <td>
+                    <div class="d-flex gap-2">
+                        <a asp-action="Edit" asp-route-id="@item.IdCliente" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.IdCliente" class="btn btn-info btn-sm text-white">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdCliente" class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
